@@ -1,0 +1,40 @@
+﻿@page "/koiorders"
+@inject HttpClient http
+@using KoiTravelShop.Model
+<h3>KoiOrderList</h3>
+<div class="row">
+    <a href="/CreateOrders" class="btn btn-primary">Add new order</a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Invoice Id</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i =0; i < KoiOrders.Count; i  ++)
+            {
+                <tr>
+                    <th scope="row">
+                        @i
+                    </th>
+                    <td>@KoiOrders[i].Id</td>
+                    <td>@KoiOrders[i].InvoiceId</td>
+                    <td>@KoiOrders[i].Quantity</td>
+                    <td>@KoiOrders[i].TotalPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@code {
+    private List<KoiOrderModel> KoiOrders = new List<KoiOrderModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        KoiOrders = await http.GetFromJsonAsync<List<KoiOrderModel>>("https://localhost:7118/api/KoiOrder");
+        await base.OnInitializedAsync();
+    }
+}

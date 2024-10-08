@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KoiTravelShop.InvoiceService\KoiTravelShop.InvoiceService.csproj" />
+    <ProjectReference Include="..\KoiTravelShop.KoiOrderService\KoiTravelShop.KoiOrderService.csproj" />
+    <ProjectReference Include="..\KoiTravelShop.Model\KoiTravelShop.Model.csproj" />
+  </ItemGroup>
+
+</Project>

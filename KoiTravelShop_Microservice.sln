@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop_Microservice", "KoiTravelShop_Microservice\KoiTravelShop_Microservice.csproj", "{609A7429-4493-41D5-9C48-B21653A827D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.InvoiceService", "KoiTravelShop.InvoiceService\KoiTravelShop.InvoiceService.csproj", "{CAF10D54-8A75-4750-BE0C-0D79F7C4A0D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.Model", "KoiTravelShop.Model\KoiTravelShop.Model.csproj", "{3E169AD4-74CB-46C0-BBBA-60040D49EA62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.AppHost", "KoiTravelShop.AppHost\KoiTravelShop.AppHost.csproj", "{1DD9001D-CCC6-4E1D-AA46-691033718FDC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.KoiOrderService", "KoiTravelShop.KoiOrderService\KoiTravelShop.KoiOrderService.csproj", "{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{609A7429-4493-41D5-9C48-B21653A827D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609A7429-4493-41D5-9C48-B21653A827D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609A7429-4493-41D5-9C48-B21653A827D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609A7429-4493-41D5-9C48-B21653A827D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF10D54-8A75-4750-BE0C-0D79F7C4A0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF10D54-8A75-4750-BE0C-0D79F7C4A0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF10D54-8A75-4750-BE0C-0D79F7C4A0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF10D54-8A75-4750-BE0C-0D79F7C4A0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E169AD4-74CB-46C0-BBBA-60040D49EA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E169AD4-74CB-46C0-BBBA-60040D49EA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E169AD4-74CB-46C0-BBBA-60040D49EA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E169AD4-74CB-46C0-BBBA-60040D49EA62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD9001D-CCC6-4E1D-AA46-691033718FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD9001D-CCC6-4E1D-AA46-691033718FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD9001D-CCC6-4E1D-AA46-691033718FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD9001D-CCC6-4E1D-AA46-691033718FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70EA4E59-4362-4AA1-AF05-AC53C9FE0CDE}
+	EndGlobalSection
+EndGlobal
