@@ -34,7 +34,7 @@
     private List<KoiOrderModel> KoiOrders = new List<KoiOrderModel>();
     protected override async Task OnInitializedAsync()
     {
-        KoiOrders = await http.GetFromJsonAsync<List<KoiOrderModel>>("https://localhost:7118/api/KoiOrder");
+        KoiOrders = await http.GetFromJsonAsync<List<KoiOrderModel>>("https://localhost:7118/api/odata/KoiOrder");
         await base.OnInitializedAsync();
     }
 }

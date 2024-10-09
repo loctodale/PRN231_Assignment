@@ -24,6 +24,7 @@ namespace KoiTravelShop.InvoiceService.Kafka
                 BootstrapServers = "localhost:9092",
                 AutoOffsetReset = AutoOffsetReset.Earliest,
             };
+
             using var consumer = new ConsumerBuilder<string, string>(config).Build();
             consumer.Subscribe(topic);
 

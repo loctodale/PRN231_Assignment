@@ -11,11 +11,10 @@ namespace KoiTravelShop.KoiOrderService.Kafka
         private readonly IProducer<string, string> _producer;
         public KafkaProducer()
         {
-            var config = new ConsumerConfig
+            var config = new ProducerConfig
             {
-                GroupId = "order-group",
                 BootstrapServers = "localhost:9092",
-                AutoOffsetReset = AutoOffsetReset.Earliest,
+                
             };
             _producer = new ProducerBuilder<string, string>(config).Build();
         }
