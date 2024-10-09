@@ -4,15 +4,18 @@ using KoiTravelShop.KoiOrderService.Kafka;
 using KoiTravelShop.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace KoiTravelShop.KoiOrderService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/odata/[controller]")]
     [ApiController]
-    public class KoiOrderController(KoiOrderDbContext dbContext, IKafkaProducer producer) : ControllerBase
+    public class KoiOrderController(KoiOrderDbContext dbContext, IKafkaProducer producer) : ODataController
     {
+        [EnableQuery]
         [HttpGet]
         public async Task<List<KoiOrderModel>> GetAll()
         {

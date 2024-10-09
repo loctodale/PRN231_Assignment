@@ -22,7 +22,7 @@
     {
         OrderModel.InvoiceId = Guid.NewGuid();
         OrderModel.Id = Guid.NewGuid();
-        var res = await http.PostAsJsonAsync<KoiOrderModel>("https://localhost:7118/api/KoiOrder", OrderModel);
+        var res = await http.PostAsJsonAsync<KoiOrderModel>("https://localhost:7118/api/odata/KoiOrder", OrderModel);
         if (res.IsSuccessStatusCode)
         {
             await JSRuntime.InvokeVoidAsync("alert", "Create order success");
