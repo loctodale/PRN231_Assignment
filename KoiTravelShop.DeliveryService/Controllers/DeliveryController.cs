@@ -1,42 +1,39 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Routing.Controllers;
-using Microsoft.AspNetCore.OData.Query;
-using Microsoft.AspNetCore.OData.Formatter;
+﻿using KoiTravelShop.Model;
+using Microsoft.AspNetCore.Mvc;
+
+
 
 namespace KoiTravelShop.DeliveryService.Controllers
 {
-    public class DeliveryController : ODataController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DeliveryController : ControllerBase
     {
-        private static IList<Delivery> _delivery = new List<Delivery>
+        private static IList<DeliveryModel> _delivery = new List<DeliveryModel>
         {
-            new Delivery { Id = 1, Name = "Laptop", Location ="Vietnam" , Description = "giao ngay" , Price = 1500 },
-            new Delivery { Id = 2, Name = "Smartphone", Location ="Vietnam" , Description = "giao ngay", Price = 800 },
-            new Delivery { Id = 3, Name = "Tablet" ,Location ="Vietnam" , Description = "giao ngay", Price = 500 },
+            new DeliveryModel { Id = Guid.NewGuid(), Name = "Laptop", Location ="Vietnam" , Description = "giao ngay" , Price = 1500 },
+            new DeliveryModel { Id = Guid.NewGuid(), Name = "Smartphone", Location ="Vietnam" , Description = "giao ngay", Price = 800 },
+            new DeliveryModel { Id = Guid.NewGuid(), Name = "Tablet" ,Location ="Vietnam" , Description = "giao ngay", Price = 500 },
 
         };
 
-
-        // GET: odata/Deliveries
-        [EnableQuery]
-        public IActionResult Get()
+        [HttpGet]
+        public List<DeliveryModel> Get()
         {
-            return Ok(_delivery.AsQueryable());
+            var result =  _delivery.ToList();
+            return result;
         }
 
-        // GET: odata/Deliveries(1)
-        [EnableQuery]
-        public IActionResult Get(int key)
+        // GET api/delivery/5
+        [HttpGet("{key}")]
+        public DeliveryModel Get(Guid key)
         {
             var delivery = _delivery.FirstOrDefault(p => p.Id == key);
-            if (delivery == null)
-            {
-                return NotFound();
-            }
-            return Ok(delivery);
+            return delivery;
         }
 
-        // POST: odata/Deliveries
-        public IActionResult Post([FromBody] Delivery delivery)
+        [HttpPost]
+        public IActionResult Post([FromBody] DeliveryModel delivery)
         {
 
             if (_delivery.Any(p => p.Id == delivery.Id))
@@ -44,18 +41,17 @@ namespace KoiTravelShop.DeliveryService.Controllers
                 return BadRequest($"A product with ID {delivery.Id} already exists.");
             }
 
-            if (delivery.Id == 0)
+            if (delivery.Id == Guid.Empty)
             {
-                delivery.Id = _delivery.Any() ? _delivery.Max(p => p.Id) + 1 : 1;
+                delivery.Id = Guid.NewGuid();
             }
-
             _delivery.Add(delivery);
 
-            return Created(delivery);
+           return Ok("Thanh cong roi ban");
         }
-
+      //  [HttpPut]
         // PUT: odata/Deliveries(1)
-        public IActionResult Put([FromODataUri] int key, [FromBody] Delivery update)
+     /*   public IActionResult Put( int key, [FromBody] DeliveryModel update)
         {
             if (!ModelState.IsValid)
             {
@@ -72,8 +68,8 @@ namespace KoiTravelShop.DeliveryService.Controllers
             existing.Price = update.Price;
             // Cập nhật các thuộc tính khác nếu cần
 
-            return Updated(existing);
-        }
+            return Ok(existing);
+        }*/
 
         
     }

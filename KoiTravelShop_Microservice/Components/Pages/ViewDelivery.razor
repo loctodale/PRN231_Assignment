@@ -1,0 +1,55 @@
+﻿
+@page "/delivery"
+@inject HttpClient http
+
+@using KoiTravelShop.DeliveryService
+@using KoiTravelShop.Model
+<h3>Delivery</h3>
+<div class="row">
+    <a href="/createdelivery" class="btn btn-primary">Add new order</a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name </th>
+                <th scope="col">Location</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Delivery.Count; i++)
+            {
+                <tr>
+                    <th scope="row">
+                        @i
+                    </th>
+                    <td>@Delivery[i].Id</td>
+                    <td>@Delivery[i].Name</td>
+                    <td>@Delivery[i].Location</td>
+                    <td>@Delivery[i].Description</td>
+                    <td>@Delivery[i].Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@code {
+    private List<DeliveryModel> Delivery = new List<DeliveryModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Delivery = await http.GetFromJsonAsync<List<DeliveryModel>>("https://localhost:7251/api/Delivery");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching deliveries: {ex.Message}");
+        }
+
+        await base.OnInitializedAsync();
+    }
+}
+
