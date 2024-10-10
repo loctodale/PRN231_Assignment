@@ -51,8 +51,6 @@ if (app.Environment.IsDevelopment())
 app.UseODataBatching();
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 app.MapControllers();
 
 app.UseAuthentication();

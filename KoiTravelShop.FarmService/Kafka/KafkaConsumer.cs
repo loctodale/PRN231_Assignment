@@ -29,18 +29,18 @@ namespace KoiTravelShop.FarmService.Kafka
             {
                 var consumeResult = consumer.Consume(stoppingToken);
 
-                var farm = JsonConvert.DeserializeObject<FarmModel>(consumeResult.Message.Value);
+                var travel = JsonConvert.DeserializeObject<TravelModel>(consumeResult.Message.Value);
                 using var scope = scopeFactory.CreateScope();
                 var dbContext = scope.ServiceProvider.GetRequiredService<FarmDbContext>();
 
                 var farmEntity = new FarmModel
                 {
-                    Id = (Guid)farm.Id,
-                    Name = farm.Name,
-                    Address = farm.Address,
-                    Owner = farm.Owner,
-                    Phone = farm.Phone,
-                    Email = farm.Email,
+                    Id = (Guid)travel.Id,
+                    Name = travel.Name,
+                    Address = "Test kafka",
+                    Owner = "Test kafka",
+                    Phone = "123",
+                    Email = "testkafka@gmail",
                 };
                 dbContext.Farms.Add(farmEntity);
                 await dbContext.SaveChangesAsync();
