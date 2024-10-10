@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KoiShopTravel.DeliveryDetailServicce\KoiShopTravel.DeliveryDetailServicce.csproj" />
+    <ProjectReference Include="..\KoiTravelShop.DeliveryService\KoiTravelShop.DeliveryService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.InvoiceService\KoiTravelShop.InvoiceService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.KoiFishService\KoiTravelShop.KoiFishService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.KoiOrderService\KoiTravelShop.KoiOrderService.csproj" />
