@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.DeliveryServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiShopTravel.DeliveryDetailServicce", "KoiShopTravel.DeliveryDetailServicce\KoiShopTravel.DeliveryDetailServicce.csproj", "{BF5C2A01-04DD-43AE-9012-EFC97DE70501}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.ServiceService", "KoiTravelShop.ServiceService\KoiTravelShop.ServiceService.csproj", "{B782E8E5-964F-45C9-B1FA-720C410C24B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{BF5C2A01-04DD-43AE-9012-EFC97DE70501}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF5C2A01-04DD-43AE-9012-EFC97DE70501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF5C2A01-04DD-43AE-9012-EFC97DE70501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B782E8E5-964F-45C9-B1FA-720C410C24B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B782E8E5-964F-45C9-B1FA-720C410C24B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B782E8E5-964F-45C9-B1FA-720C410C24B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B782E8E5-964F-45C9-B1FA-720C410C24B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
