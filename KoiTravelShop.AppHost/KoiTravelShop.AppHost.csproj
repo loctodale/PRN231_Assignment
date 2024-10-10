@@ -20,6 +20,7 @@
     <ProjectReference Include="..\KoiTravelShop.KoiFishService\KoiTravelShop.KoiFishService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.KoiOrderService\KoiTravelShop.KoiOrderService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.KoiSizeService\KoiTravelShop.KoiSizeService.csproj" />
+    <ProjectReference Include="..\KoiTravelShop.ServiceService\KoiTravelShop.ServiceService.csproj" />
     <ProjectReference Include="..\KoiTravelShop_Microservice\KoiTravelShop_Microservice.csproj" />
   </ItemGroup>
 

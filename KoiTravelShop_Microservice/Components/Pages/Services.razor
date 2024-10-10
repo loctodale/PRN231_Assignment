@@ -1,0 +1,41 @@
+﻿@page "/services"
+@inject HttpClient http
+@using KoiTravelShop.Model
+<h3>Services</h3>
+
+<div class="row">
+    <a href="/services/create" class="btn btn-primary">Add</a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Service Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < serviceModels.Count; i++)
+            {
+                <tr>
+                    <th scope="row">
+                        @i
+                    </th>
+                    <td>@serviceModels[i].Id</td>
+                    <td>@serviceModels[i].ServiceName</td>
+                    <td>@serviceModels[i].Description</td>
+                    <td>@serviceModels[i].Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@code {
+    private List<ServiceModel> serviceModels = new List<ServiceModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        serviceModels = await http.GetFromJsonAsync<List<ServiceModel>>("https://localhost:7777/api/Service");
+        await base.OnInitializedAsync();
+    }
+}
