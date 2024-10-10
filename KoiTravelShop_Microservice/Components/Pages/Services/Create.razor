@@ -1,0 +1,38 @@
+﻿@page "/services/create"
+@inject HttpClient http
+@using KoiTravelShop.Model
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+<h3>CreateService</h3>
+
+<form>
+    <div class="form-group mb-4">
+        <label>Service name</label>
+        <input type="text" class="form-control" @bind="serviceModel.ServiceName" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label>Description</label>
+        <input type="text" class="form-control" @bind="serviceModel.Description" />
+    </div>
+    
+    <div class="form-group mb-4">
+        <label>Price</label>
+        <input type="number" step="0.01" class="form-control" @bind="serviceModel.Price" />
+    </div>
+    <button type="button" class="btn btn-primary" @onclick="HandleCreateService">Create Service</button>
+</form>
+
+@code {
+    public ServiceModel serviceModel = new ServiceModel();
+    public async Task HandleCreateService()
+    {
+        serviceModel.Id = Guid.NewGuid();
+        var res = await http.PostAsJsonAsync<ServiceModel>("https://localhost:7777/api/Service", serviceModel);
+        if (res.IsSuccessStatusCode)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Create booking request success");
+            NavigationManager.NavigateTo("/services"); 
+        }
+    }
+}

@@ -1,0 +1,46 @@
+﻿@page "/bookingrequests/create"
+@inject HttpClient http
+@using KoiTravelShop.Model
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+<h3>CreateBookingRequest</h3>
+
+<form>
+    <div class="form-group mb-4">
+        <label>Number Of Person</label>
+        <input type="number" class="form-control" @bind="bookingRequestModel.NumberOfPerson" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label>Quantity Service</label>
+        <input type="number" class="form-control" @bind="bookingRequestModel.QuantityService" />
+    </div>
+    <div class="form-group mb-4">
+        <label>Status</label>
+        <select class="form-control" @bind="bookingRequestModel.Status">
+            @foreach (var status in Enum.GetValues(typeof(BookingRequestStatus)))
+            {
+                <option value="@status">@status</option>
+            }
+        </select>
+    </div>
+    <button type="button" class="btn btn-primary" @onclick="HandleCreateBookingRequest">Create BookingRequest</button>
+</form>
+
+@code {
+    public BookingRequestModel bookingRequestModel = new BookingRequestModel();
+    public async Task HandleCreateBookingRequest()
+    {
+        bookingRequestModel.Id = Guid.NewGuid();
+        bookingRequestModel.CustomerId = Guid.NewGuid();
+        bookingRequestModel.TravelId = Guid.NewGuid();
+        var res = await http.PostAsJsonAsync<BookingRequestModel>("https://localhost:7778/api/BookingRequest", bookingRequestModel);
+        if (res.IsSuccessStatusCode)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Create booking request success");
+            NavigationManager.NavigateTo("/bookingrequests");
+
+        }
+    }
+}

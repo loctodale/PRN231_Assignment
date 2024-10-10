@@ -14,5 +14,14 @@ namespace KoiTravelShop.ServiceService.Controllers
         {
             return await dbContext.Services.ToListAsync();
         }
+
+        [HttpPost]
+        public async Task<ServiceModel> Create(ServiceModel model)
+        {
+            dbContext.Services.Add(model);
+            await dbContext.SaveChangesAsync();
+
+            return model;
+        }
     }
 }
