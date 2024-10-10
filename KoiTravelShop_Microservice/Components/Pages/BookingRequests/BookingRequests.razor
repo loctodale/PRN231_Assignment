@@ -1,0 +1,46 @@
+﻿@page "/bookingrequests"
+@inject HttpClient http
+@using KoiTravelShop.Model
+
+<h3>BookingRequests</h3>
+
+<div class="row">
+    <a href="/bookingrequests/create" class="btn btn-primary">Add</a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Customer Id</th>
+                <th scope="col">Travel Id</th>
+                <th scope="col">Quantity Service</th>
+                <th scope="col">Number Of Person</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < bookingRequestModels.Count; i++)
+            {
+                <tr>
+                    <th scope="row">
+                        @i
+                    </th>
+                    <td>@bookingRequestModels[i].Id</td>
+                    <td>@bookingRequestModels[i].CustomerId</td>
+                    <td>@bookingRequestModels[i].TravelId</td>
+                    <td>@bookingRequestModels[i].QuantityService</td>
+                    <td>@bookingRequestModels[i].NumberOfPerson</td>
+                    <td>@bookingRequestModels[i].Status.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@code {
+    private List<BookingRequestModel> bookingRequestModels = new List<BookingRequestModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        bookingRequestModels = await http.GetFromJsonAsync<List<BookingRequestModel>>("https://localhost:7778/api/BookingRequest");
+        await base.OnInitializedAsync();
+    }
+}
