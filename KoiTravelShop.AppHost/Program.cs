@@ -6,7 +6,7 @@ var koiFishApi = builder.AddProject<Projects.KoiTravelShop_KoiFishService>("apis
 var koiSizeApi = builder.AddProject<Projects.KoiTravelShop_KoiSizeService>("apiservice-size");
 var deliveryApi = builder.AddProject<Projects.KoiTravelShop_DeliveryService>("apiservice-delivery");
 var deliverydetailApi = builder.AddProject<Projects.KoiShopTravel_DeliveryDetailServicce>("apiservice-deliverydetail");
-var serviceApi = builder.AddProject<Projects.KoiShopTravel_DeliveryDetailServicce>("apiservice-service");
+var serviceApi = builder.AddProject<Projects.KoiTravelShop_ServiceService>("apiservice-service");
 
 
 builder.AddProject<Projects.KoiTravelShop_Microservice>("webfrontend")
@@ -18,7 +18,4 @@ builder.AddProject<Projects.KoiTravelShop_Microservice>("webfrontend")
     .WithReference(deliveryApi)
     .WithReference(deliverydetailApi)
     .WithReference(serviceApi);
-
-builder.AddProject<Projects.KoiTravelShop_ServiceService>("koitravelshop-serviceservice");
-
 builder.Build().Run();
