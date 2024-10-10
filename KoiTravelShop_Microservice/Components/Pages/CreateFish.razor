@@ -1,0 +1,30 @@
+﻿@page "/createfishs"
+@using KoiTravelShop.Model
+@inject HttpClient http
+@inject IJSRuntime JSRunTime
+<h3>CreateFish</h3>
+
+<form>
+    <div class="form-group mb-4">
+        <label>Fish Price</label>
+        <input type="text" class="form-control" @bind="FishModel.Price" />
+    </div>
+    <div class="form-group mb-4">
+        <label>Description</label>
+        <input type="text" class="form-control" @bind="FishModel.Description" />
+    </div>
+    <button type="button" class="btn btn-primary" @onclick="HandleCreateOrder">Create Fish</button>
+</form>
+@code {
+    public koiFishModel FishModel = new koiFishModel();
+    public async Task HandleCreateOrder()
+    {
+        FishModel.SizeId = Guid.NewGuid();
+        FishModel.Id = Guid.NewGuid();
+        var res = await http.PostAsJsonAsync<koiFishModel>("https://localhost:7101/api/Fishs", FishModel);
+        if (res.IsSuccessStatusCode)
+        {
+            await JSRunTime.InvokeVoidAsync("alert", "Create fish success");
+        }
+    }
+}

@@ -21,7 +21,7 @@ builder.Services.AddControllers().AddOData(
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<KoiOrderDbContext>(option => option.UseSqlServer("Server=(local); Database=KoiTravelShop_KoiOrder; Uid=sa; Pwd=12345; TrustServerCertificate=True"));
+builder.Services.AddDbContext<KoiOrderDbContext>(option => option.UseSqlServer("Server=VUONGGGGG\\SERVER1; Database=KoiTravelShop_KoiOrder; Uid=sa; Pwd=12345; TrustServerCertificate=True"));
 builder.Services.AddScoped<IKafkaProducer, KafkaProducer>();
 builder.Services.AddSingleton<TokenProvider>();
 

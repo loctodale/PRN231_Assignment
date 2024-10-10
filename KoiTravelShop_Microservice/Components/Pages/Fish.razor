@@ -1,0 +1,43 @@
+﻿@page "/koifishs"
+@using KoiTravelShop.Model
+
+@inject HttpClient http
+<h3>FishList</h3>
+<div class="row">
+    <a href="/CreateFishs" class="btn btn-primary">Add new Fish</a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Size Id</th>
+                <th scope="col">Price</th>
+                <th scope="col">Desciption</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Fishs.Count; i++)
+            {
+                <tr>
+                    <th scope="row">
+                        @i
+                    </th>
+                    <td>@Fishs[i].Id</td>
+                    <td>@Fishs[i].SizeId</td>
+                    <td>@Fishs[i].Price</td>
+                    <td>@Fishs[i].Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private List<koiFishModel> Fishs = new List<koiFishModel>();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Fishs = await http.GetFromJsonAsync<List<koiFishModel>>("https://localhost:7101/api/Fishs");
+        await base.OnInitializedAsync();
+    }
+}

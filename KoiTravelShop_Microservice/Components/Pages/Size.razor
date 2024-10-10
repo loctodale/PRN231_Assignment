@@ -1,0 +1,38 @@
+﻿@page "/size"
+@using KoiTravelShop.Model
+@inject HttpClient http
+<h3>Size</h3>
+
+<div class="row">
+    <a href="/CreateOrders" class="btn btn-primary">Add new order</a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Size In Cm</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Sizes.Count; i++)
+            {
+                <tr>
+                    <th scope="row">
+                        @i
+                    </th>
+                    <td>@Sizes[i].Id</td>
+                    <td>@Sizes[i].SizeInCm</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private List<SizeModel> Sizes = new List<SizeModel>();
+    protected override async Task OnParametersSetAsync()
+    {
+        Sizes = await http.GetFromJsonAsync<List<SizeModel>>("https://localhost:7038/api/Sizes");
+        await base.OnInitializedAsync();
+    }
+}
