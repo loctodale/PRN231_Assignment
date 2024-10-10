@@ -1,7 +1,9 @@
 ﻿using Confluent.Kafka;
 using KoiTravelShop.KoiOrderService.Data;
+using KoiTravelShop.KoiOrderService.Infrastructure;
 using KoiTravelShop.KoiOrderService.Kafka;
 using KoiTravelShop.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -13,10 +15,11 @@ namespace KoiTravelShop.KoiOrderService.Controllers
 {
     [Route("api/odata/[controller]")]
     [ApiController]
-    public class KoiOrderController(KoiOrderDbContext dbContext, IKafkaProducer producer) : ODataController
+    public class KoiOrderController(KoiOrderDbContext dbContext, IKafkaProducer producer, TokenProvider tokenProvider) : ODataController
     {
         [EnableQuery]
         [HttpGet]
+        [Authorize]
         public async Task<List<KoiOrderModel>> GetAll()
         {
             return await dbContext.KoiOrders.ToListAsync();
@@ -35,6 +38,16 @@ namespace KoiTravelShop.KoiOrderService.Controllers
 
             });
             return model;
+        }
+        [HttpPost ("login")]
+        public async Task<string> Login (User user)
+        {
+            if(user.Email != "admin" || user.Password != "admin")
+            {
+                throw new Exception("Login fail");
+            }
+            var token = tokenProvider.Create(user);
+            return token;
         }
     }
 }
