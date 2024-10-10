@@ -1,0 +1,6 @@
+@KoiTravelShop.BookingRequest_HostAddress = http://localhost:5181
+
+GET {{KoiTravelShop.BookingRequest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
