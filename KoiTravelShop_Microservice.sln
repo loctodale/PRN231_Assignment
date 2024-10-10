@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.AppHost", "Ko
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.KoiOrderService", "KoiTravelShop.KoiOrderService\KoiTravelShop.KoiOrderService.csproj", "{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.TravelService", "KoiTravelShop.TravelService\KoiTravelShop.TravelService.csproj", "{FE9F62FE-A545-4624-A4DD-AA5A52721F15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiTravelShop.FarmService", "KoiTravelShop.FarmService\KoiTravelShop.FarmService.csproj", "{557CC9F1-E697-4A79-8542-0DBE9CE8AA7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53325CCF-DFF8-4C61-BCE8-2708E2FDB705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE9F62FE-A545-4624-A4DD-AA5A52721F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE9F62FE-A545-4624-A4DD-AA5A52721F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE9F62FE-A545-4624-A4DD-AA5A52721F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE9F62FE-A545-4624-A4DD-AA5A52721F15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557CC9F1-E697-4A79-8542-0DBE9CE8AA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557CC9F1-E697-4A79-8542-0DBE9CE8AA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557CC9F1-E697-4A79-8542-0DBE9CE8AA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557CC9F1-E697-4A79-8542-0DBE9CE8AA7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

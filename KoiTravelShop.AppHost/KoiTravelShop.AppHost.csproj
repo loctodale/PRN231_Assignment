@@ -14,8 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KoiTravelShop.FarmService\KoiTravelShop.FarmService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.InvoiceService\KoiTravelShop.InvoiceService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.KoiOrderService\KoiTravelShop.KoiOrderService.csproj" />
+    <ProjectReference Include="..\KoiTravelShop.TravelService\KoiTravelShop.TravelService.csproj" />
     <ProjectReference Include="..\KoiTravelShop_Microservice\KoiTravelShop_Microservice.csproj" />
   </ItemGroup>
 

@@ -1,0 +1,32 @@
+﻿@page "/createtravels"
+@inject HttpClient http
+@using KoiTravelShop.Model
+@inject IJSRuntime JSRuntime
+<h3>CreateTravel</h3>
+<form>
+    <div class="form-group mb-4">
+        <label>Travel Name</label>
+        <input type="text" class="form-control" @bind="travelModel.Name" />
+    </div>
+    <div class="form-group mb-4">
+        <label>Travel Location</label>
+        <input type="text" class="form-control" @bind="travelModel.Location" />
+    </div>
+    <div class="form-group mb-4">
+        <label>Travel Price</label>
+        <input type="text" class="form-control" @bind="travelModel.Price" />
+    </div>
+    <button type="button" class="btn btn-primary" @onclick="HandleCreateOrder">Create Travel</button>
+</form>
+@code {
+    public TravelModel travelModel = new TravelModel();
+    public async Task HandleCreateOrder()
+    {
+        travelModel.Id = Guid.NewGuid();
+        var res = await http.PostAsJsonAsync<TravelModel>("https://localhost:7200/api/Travel", travelModel);
+        if (res.IsSuccessStatusCode)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Create travel success");
+        }
+    }
+}
