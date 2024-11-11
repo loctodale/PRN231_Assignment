@@ -1,0 +1,12 @@
+﻿{
+   "ConnectionStringName": "dab-connection-string",
+   "Dacpac": null,
+   "DatabaseType": 3,
+   "ProjectPath": "D:\\github.com\\loctodale\\KoiTravelShop_Microservice\\WCFServiceInvoice",
+   "Tables": [
+      {
+         "Name": "[dbo].[Invoice]",
+         "ObjectType": 0
+      }
+   ]
+}

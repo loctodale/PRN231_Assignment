@@ -20,7 +20,6 @@ namespace KoiTravelShop.KoiOrderService.Infrastructure
             {
                 Subject = new ClaimsIdentity(
                     [
-                        //new Claim(JwtRegisteredClaimNames.Sub, user.Id),
                         new Claim(JwtRegisteredClaimNames.Sub, user.Id),
                         new Claim(JwtRegisteredClaimNames.Email, user.Email)
                     ]),

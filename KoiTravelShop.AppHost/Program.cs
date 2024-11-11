@@ -8,4 +8,8 @@ builder.AddProject<Projects.KoiTravelShop_Microservice>("webfrontend")
     .WithReference(koiOrderApi)
     .WithReference(invoiceApi);
 
+builder.AddProject<Projects.WCFClient>("wcfclient");
+
+builder.AddProject<Projects.InvoiceGrpc>("invoicegrpc");
+
 builder.Build().Run();

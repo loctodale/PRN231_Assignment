@@ -11,7 +11,7 @@ namespace KoiTravelShop.InvoiceService.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<InvoiceModel>().HasData(new InvoiceModel { Id = Guid.NewGuid(), PaymentAmount = 2000, PaymentDate = DateTime.Now });
+            modelBuilder.Entity<InvoiceModel>().HasData(new InvoiceModel { Id = Guid.NewGuid(), PaymentAmount = 2000, PaymentDate = DateTime.Now, DiscountAmount=2000, DueDate=DateTime.Now, InvoiceNumber="INV-2003", IssueDate=DateTime.Now, PaymentMethod="Credit Card", TaxAmount=1000 });
             base.OnModelCreating(modelBuilder);
         }
 

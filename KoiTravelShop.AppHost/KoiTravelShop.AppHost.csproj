@@ -14,9 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InvoiceGrpc\InvoiceGrpc.csproj" />
     <ProjectReference Include="..\KoiTravelShop.InvoiceService\KoiTravelShop.InvoiceService.csproj" />
     <ProjectReference Include="..\KoiTravelShop.KoiOrderService\KoiTravelShop.KoiOrderService.csproj" />
     <ProjectReference Include="..\KoiTravelShop_Microservice\KoiTravelShop_Microservice.csproj" />
+    <ProjectReference Include="..\WCFClient\WCFClient.csproj" />
   </ItemGroup>
 
 </Project>

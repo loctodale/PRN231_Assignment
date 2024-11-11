@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "InvoiceGrpc";
+
+package invoice;
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+service InvoiceRPC {
+  rpc GetAll (Empty) returns (GetAllReply);
+  rpc Create (Invoice) returns (CreateReply);
+  rpc Update (Invoice) returns (UpdateReply);
+}
+message Empty {}
+message Invoice {
+  string id = 1; 
+  double payment_amount = 2; 
+  google.protobuf.Timestamp payment_date = 3;
+}
+
+
+message GetAllReply {
+  repeated Invoice invoices = 1;
+}
+
+message CreateReply{
+	Invoice invoices = 1;
+}
+message UpdateReply{
+	Invoice invoices = 1;
+}

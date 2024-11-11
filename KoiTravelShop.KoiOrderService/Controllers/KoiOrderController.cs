@@ -19,7 +19,7 @@ namespace KoiTravelShop.KoiOrderService.Controllers
     {
         [EnableQuery]
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<List<KoiOrderModel>> GetAll()
         {
             return await dbContext.KoiOrders.ToListAsync();
